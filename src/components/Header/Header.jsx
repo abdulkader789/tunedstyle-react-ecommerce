@@ -5,14 +5,14 @@ const Header = () => {
 
 
   return (
-    <nav className="navbar">
-      <div className="container">
-        <div className="logo">
+    <nav className="w-full flex py-5 nav-bg">
+    
+        <div className="w-[30%] flex justify-center items-center">
         <h2><a href='/'>ShopWave</a></h2>
         </div>
        
-        <div className="nav-item-container">
-          <ul>
+        <div className="w-[70%]">
+          <ul className='flex justify-evenly'>
             <li>
                <a href='/shop'>Shop</a>
             </li>
@@ -28,7 +28,7 @@ const Header = () => {
            
           </ul>
         </div>
-      </div>
+   
     </nav>
 
 

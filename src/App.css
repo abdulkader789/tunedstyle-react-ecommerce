@@ -1,14 +1,15 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.person{
-  height:200px;
-  width: 500px;
-  background-color:lightcoral;
-  color:white;
-  margin-bottom: 20px;
-  margin-top: 20px;
 }
