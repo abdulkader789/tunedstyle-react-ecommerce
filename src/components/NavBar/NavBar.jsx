@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars,faSearch,faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
+  const [isNavOpen,setIsNavOpen]=useState(false)
+  const toggleNav=()=>{
+    setIsNavOpen(!isNavOpen)
+  }
   return (
+    <div className='w-full relative'>
     <div className="navbar sm:h-16  box-border flex flex-col sm:flex-row  sm:pb-0 justify-evenly items-center">
         
       <div className="logo flex w-full justify-between sm:w-48">
-            <div className="mobile-icons w-16 border shadow-md sm:hidden">
+            <div className="mobile-icons w-16 border shadow-md sm:hidden cursor-pointer" onClick={toggleNav}>
                 <FontAwesomeIcon className='text-black' icon={faBars} />
             </div>
             <h1 className='w-[40%] sm:w-[100%] px-2 text-black'>TunedStyle</h1>
@@ -29,6 +34,34 @@ function NavBar() {
             <FontAwesomeIcon icon={faShoppingCart} />
             <button className='absolute right-6 top-3 bg-red-400 text-white text-xs px-1 rounded-sm'>0</button>
       </div>
+    </div>
+
+    <nav className={` w-48 sm:w-full flex flex-col sm:flex-row py-5 absolute sm:relative sm:top-0 top-[60px] nav-bg
+                    ${isNavOpen?'slide-in':'slide-out'}`}>
+    
+        <div className="w-full sm:w-[30%] flex justify-center items-center">
+        <h2><a href='/'>ShopWave</a></h2>
+        </div>
+       
+        <div className="w-full py-10 sm:py-2">
+          <ul className='flex flex-col sm:flex-row sm:justify-evenly justify-center relative '>
+            <li className='mb-3'>
+               <a href='/shop'>Shop</a>
+            </li>
+            <li className='mb-3'>
+             <a href='/order'>Order</a>
+            </li>
+            <li className='mb-3'>
+             <a href='/inventory'>Inventory</a>
+            </li>
+            <li className='mb-3'>
+             <a href='/login'>Login</a>
+            </li>
+           
+          </ul>
+        </div>
+   
+    </nav>
     </div>
   );
 }

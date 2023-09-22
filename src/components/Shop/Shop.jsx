@@ -17,15 +17,15 @@ const Shop = () => {
     }
     
     return (
-        <div className='flex justify-center my-5 w-full'>
-            <div className='w[80%]   grid grid-cols-1 gap-5  md:grid-cols-2 lg:grid-cols-3'>
+        <div className='w-full flex my-5'>
+            <div className='grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 w-full'>
                 {
                     products.map(product=><Product key={product.id} product={product} handleAddToCart={handleAddToCart}></Product>)
                 }
             </div>
-            <div className='w-[20%] p-5 box-shadow '>
-                <p className='text-left'>Product total {cart.length}</p>
-                <p className='text-left'>Product total cost</p>
+            <div className='w-48'>
+                <p className=''>Product total {cart.length}</p>
+                <p className=''>Product total cost</p>
             </div>
      
             

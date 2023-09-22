@@ -1,35 +1,30 @@
 import React from 'react';
 import './Header.css'
-
+import banner from "./banner.jpg"
 const Header = () => {
 
 
   return (
-    <nav className="w-full flex py-5 nav-bg">
     
-        <div className="w-[30%] flex justify-center items-center">
-        <h2><a href='/'>ShopWave</a></h2>
+
+<section  className='w-full relative  box-border'>
+<div className="w-full">
+    <div>
+    <img className='w-full'src={banner} alt="img "/> 
+    </div>
+    <div className="absolute top-0">
+        <p className="">SUMMER COLLECTION</p>
+        <h2 className=''>FALL - WINTER<br/>Collection 2023</h2>
+        <div className="">
+            <p>A specialist label creating luxury essentials. Ethically crafted<br/>with an unwavering commitment to exceptional quality.</p>
         </div>
-       
-        <div className="w-[70%]">
-          <ul className='flex justify-evenly'>
-            <li>
-               <a href='/shop'>Shop</a>
-            </li>
-            <li>
-             <a href='/order'>Order</a>
-            </li>
-            <li>
-             <a href='/inventory'>Inventory</a>
-            </li>
-            <li>
-             <a href='/login'>Login</a>
-            </li>
-           
-          </ul>
+        <button><a href="#sellers">SHOP NOW</a><i className=''></i></button>
+        <div className="">
+      
         </div>
-   
-    </nav>
+    </div>
+</div>
+</section>
 
 
 
