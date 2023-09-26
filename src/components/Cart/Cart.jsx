@@ -10,7 +10,7 @@ function Cart() {
             <h2>Cart Items:</h2>
 
             {cart.map((item, index) => (
-                <div className="flex border shadow-md mb-1 justify-evenly items-center text-white" key={index}>
+                <div className="flex border shadow-md justify-evenly items-center text-white" key={index}>
                     <div>
                         <p className="text-xs text-left">{item.title.split(' ')[0]}</p>
                         <p className="text-xs text-left">{item.price}</p>
