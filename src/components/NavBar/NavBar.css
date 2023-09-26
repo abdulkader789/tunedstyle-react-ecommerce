@@ -3,7 +3,6 @@
 .navbar {
   background-color: #f9f9f9;
   color: white;
-
   width: 100%;
 }
 
@@ -12,11 +11,6 @@
   height: auto;
 }
 
-.search-bar {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
 .search-bar input {
   box-sizing: border-box;
   border: 1px solid rgb(202, 202, 202);
@@ -39,9 +33,6 @@
   cursor: pointer;
 }
 
-.faSearch {
-  color: black;
-}
 
 .container {
   border: 1px solid black;
@@ -54,7 +45,7 @@
   background-color: #fef7e5;
 
   /* Adjust this value based on your design */
-  z-index: 100; /* Ensure the navbar stays above other content */
+  z-index: 10; /* Ensure the navbar stays above other content */
   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
     rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
@@ -72,7 +63,11 @@ ul li a {
 }
 /* Add this to your CSS file */
 
-@media (max-width: 640px) {
+.slide-out{
+  left:-300px;
+}
+
+@media (max-width: 1024px) {
   .slide-in {
     left: 0;
     transition: left 0.5s;
