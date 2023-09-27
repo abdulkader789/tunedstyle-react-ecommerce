@@ -32,16 +32,16 @@ function NavBar() {
           <div className="mobile-icons w-20 lg:hidden cursor-pointer" onClick={toggleNav}>
             <FontAwesomeIcon className='text-black' icon={faBars} />
           </div>
-          <h1 className='w-full lg:w-[100%] px-2 text-black'>TunedStyle</h1>
+          <h1 className='w-full lg:w-[100%] px-2 text-slate-900 font-semibold'>TunedStyle</h1>
 
 
           <div className='w-[40%] lg:hidden flex text-black justify-evenly items-center'>
             <FontAwesomeIcon onClick={toggleSearch} className='faSearch cursor-pointer' icon={faSearch} />
 
-            <FontAwesomeIcon className='' icon={faHeart} />
+            <FontAwesomeIcon className='text-red-500' icon={faHeart} />
             <div onClick={toggleCart} className='cursor-pointer relative' >
-              <FontAwesomeIcon icon={faShoppingCart} />
-              <button className='absolute right-0 -top-3 bg-red-400 text-white text-xs px-1 rounded-lg'>{cart.length}</button>
+              <FontAwesomeIcon className='text-orange-400' icon={faShoppingCart} />
+              <button className='absolute right-0 -top-3  text-black text-xs px-1 rounded-lg'>{cart.length}</button>
 
             </div>
           </div>
@@ -49,8 +49,8 @@ function NavBar() {
 
         {/* search section */}
 
-        <div className={`${isSearchOpen ? 'flex' : 'hidden'} flex-1 items-center lg:w-96 w-full relative lg:pl-5 lg:flex lg:justify-center`}>
-          <input className='w-full relative  lg:w-[600px]  h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
+        <div className={`${isSearchOpen ? 'flex' : 'hidden'} flex-1 absolute top-12 lg:relative lg:top-auto items-center lg:w-96 w-full lg:pl-5 lg:flex lg:justify-center`}>
+          <input className='w-full relative search-input  lg:w-[600px]  h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
           <button type="button" className='lg:relative lg:right-12 absolute right-2'>
             <FontAwesomeIcon className='faSearch cursor-pointer' icon={faSearch} />
           </button>
@@ -58,25 +58,25 @@ function NavBar() {
 
         <div className='hidden cursor-pointer text-black w-20 lg:w-40 lg:flex justify-around items-center'>
 
-          <FontAwesomeIcon icon={faHeart} />
+          <FontAwesomeIcon className='text-red-500' icon={faHeart} />
           <div onClick={toggleCart} className='cursor-pointer relative' >
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <button className='absolute right-0 -top-3 bg-red-400 text-white text-xs px-1 rounded-lg'>{cart.length}</button>
+            <FontAwesomeIcon className='text-orange-400' icon={faShoppingCart} />
+            <button className='absolute right-0 -top-3  text-black text-xs px-1 rounded-lg'>{cart.length}</button>
 
           </div>
         </div>
         <div className='w-48 hidden lg:block'>
           <ul className='text-black flex justify-evenly'>
             <li className='cursor-pointer   text-sm px-2 py-1'>Sign-up</li>
-            <li className='cursor-pointer bg-blue-400 text-white text-sm px-4 py-1'>Login</li>
+            <li className='cursor-pointer hover:bg-blue-500 bg-blue-400 text-white text-sm px-4 py-1'>Login</li>
           </ul>
         </div>
       </div>
 
-      <nav className={`${isNavOpen ? 'slide-in' : 'slide-out'} w-40 z-20 absolute bg-green-600 lg:hidden top-20`}>
+      <nav className={`${isNavOpen ? 'slide-in' : 'slide-out'} w-56 h-screen z-20 absolute bg-gray-200 lg:hidden top-14`}>
 
 
-        <h2><a href='/'>ShopWave</a></h2>
+
         <ul className='text-black flex flex-col justify-evenly'>
           <li className='cursor-pointer'>Sign-up</li>
           <li className='cursor-pointer'>Login</li>

@@ -5,6 +5,13 @@
   color: white;
   width: 100%;
 }
+.search-input{
+  border:1px solid rgb(197, 195, 195);
+}
+.search-input:focus{
+  border:1px solid rgb(216, 217, 219);
+
+}
 
 .logo img {
   max-width: 100px; /* Adjust the logo size as needed */
