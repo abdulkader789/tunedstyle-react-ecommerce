@@ -15,7 +15,7 @@ const Contact = () => {
                     <h3>India</h3>
                     <p>HW95+C9C, Lorem ipsum dolor sit.<br />411014</p>
                 </div>
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 ">
                     <div className='text-black'>
                         <input className='w-full' type="text" placeholder="Name" required />
                         <input className='w-full' type="email" placeholder="Email" required />

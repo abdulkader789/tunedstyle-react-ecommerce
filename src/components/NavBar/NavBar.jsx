@@ -23,8 +23,8 @@ function NavBar() {
 
   return (
     <div className='w-full bg-white z-50 flex justify-evenly sticky top-0 items-center h-14 shadow-sm border'>
-      <div className={`absolute right-0 top-14 z-50 ${isCartOpen ? 'block' : 'hidden'}`}>
-        <Cart></Cart>
+      <div className={`absolute right-0 top-14 z-50 ${isCartOpen ? 'animate-in' : 'hidden'}`}>
+        <Cart />
       </div>
       <div className=" lg:h-16 w-full box-border flex flex-col lg:flex-row  lg:pb-0 justify-evenly items-center">
 
@@ -49,7 +49,7 @@ function NavBar() {
 
         {/* search section */}
 
-        <div className={`${isSearchOpen ? 'flex' : 'hidden'} flex-1 absolute top-12 lg:relative lg:top-auto items-center lg:w-96 w-full lg:pl-5 lg:flex lg:justify-center`}>
+        <div className={`${isSearchOpen ? 'flex animate-in' : 'hidden'} flex-1 absolute top-12 lg:relative lg:top-auto items-center lg:w-96 w-full lg:pl-5 lg:flex lg:justify-center`}>
           <input className='w-full relative search-input  lg:w-[600px]  h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
           <button type="button" className='lg:relative lg:right-12 absolute right-2'>
             <FontAwesomeIcon className='faSearch cursor-pointer' icon={faSearch} />
@@ -73,7 +73,7 @@ function NavBar() {
         </div>
       </div>
 
-      <nav className={`${isNavOpen ? 'slide-in' : 'slide-out'} w-56 h-screen z-20 absolute bg-gray-200 lg:hidden top-14`}>
+      <nav className={`${isNavOpen ? 'slide-in' : 'slide-out'} w-56 h-screen z-20 absolute bg-gray-100 lg:hidden top-14`}>
 
 
 

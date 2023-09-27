@@ -13,7 +13,7 @@ const Product = (props) => {
 
 
     return (
-        <div className='card-shadow w-52 flex flex-col px-2 h-64 mb-3 bg-white place-self-center relative'>
+        <div className='card-shadow phone-width box-border w-52 flex flex-col px-2 h-64 mb-3 bg-white place-self-center relative'>
 
             <img alt='' className='h-[50%] w-full px-8 my-2' src={image} ></img>
 

@@ -5,5 +5,10 @@
 .card-shadow{
     box-shadow: rgba(60, 59, 59, 0.15) 1px 1px 1px;    
 }
-
+@media(max-width:300px){
+    .phone-width{
+        width: 100%!important;
+    
+    }
+}
 
