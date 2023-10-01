@@ -42,3 +42,56 @@
 .faSearch {
   color: black;
 }
+
+
+
+
+a{
+  text-decoration: none;
+}
+
+
+ul li{
+  list-style-type: none;
+}
+ul li a{
+  text-decoration: none;
+}
+
+
+.button-59 {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  justify-content: center;
+
+
+  outline: 0;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  background-color: black;
+  color:white;
+}
+
+.button-59:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
