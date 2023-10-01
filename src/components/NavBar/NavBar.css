@@ -95,3 +95,16 @@ ul li a{
   fill: #06f;
 }
 
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: -300px; /* Initial position, outside the viewport */
+  width: 300px; /* Sidebar width */
+  height: 100vh; /* Full height of the viewport */
+  transition: left 0.3s ease; /* Transition duration and timing function */
+}
+
+.sidebar.open {
+  
+  left: 0; /* Show the sidebar by moving it to the left */
+}

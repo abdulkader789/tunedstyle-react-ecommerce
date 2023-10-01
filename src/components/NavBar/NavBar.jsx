@@ -1,34 +1,76 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars, faSearch, faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function NavBar() {
-  return (
-    <main>
-      <div className="navbar sm:h-16  box-border flex flex-col sm:flex-row  sm:pb-0 justify-evenly items-center">
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const sidebarRef = useRef(null);
+  const barsRef = useRef(null); // Define the barsRef
 
-        <div className="logo flex w-full justify-between sm:w-48">
-          <div className="mobile-icons w-16 border shadow-md sm:hidden">
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const sidebarClicked = sidebarRef.current && sidebarRef.current.contains(event.target);
+      const barsClicked = barsRef.current && barsRef.current.contains(event.target);
+
+      if (!sidebarClicked && !barsClicked) {
+        setIsSidebarOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+
+
+
+  return (
+    <main className='relative w-full'>
+      <div className="">
+        <div className="w-full flex">
+          <div ref={barsRef}
+            className="cursor-pointer w-20" onClick={toggleSidebar}>
             <FontAwesomeIcon className='text-black' icon={faBars} />
           </div>
-          <h1 className='w-[40%] sm:w-[100%] px-2 text-black'>TunedStyle</h1>
-          <div className='w-20 sm:hidden flex text-black justify-evenly items-center border shadow-md'>
-            <FontAwesomeIcon className='' icon={faHeart} />
-            <FontAwesomeIcon icon={faShoppingCart} />
-            <button className='absolute right-1 top-1 bg-red-400 text-white text-xs px-1 rounded-sm'>0</button>
+          <h1 className='w-full text-xl  text-black'>TunedStyle</h1>
+          < FontAwesomeIcon className='text-black m-auto w-20' icon={faSearch} />
 
+        </div>
+
+        <section ref={sidebarRef} className={`sidebar z-10 bg-gray-100 ${isSidebarOpen ? 'open' : ''}`}>
+
+          <div className="search-bar w-full relative sm:pl-5 sm:flex sm:justify-center mb-5">
+            <input className='w-full relative sm:w-[400px] lg:w-[600px]  h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
+            <button type="button" className='sm:relative sm:right-12 absolute right-2'> <FontAwesomeIcon className='faSearch' icon={faSearch} /></button>
           </div>
-        </div>
+          <ul className='flex flex-col justify-around uppercase nav-scale'>
+            <li className='bg-black mb-2 py-1'>
+              <a href='/shop'>Men</a>
+            </li>
+            <li className='bg-black mb-2 py-1'>
+              <a href='/order'>women</a>
+            </li>
+            <li className='bg-black mb-2 py-1'>
+              <a href='/inventory'>kids</a>
+            </li>
+            <li className='bg-black mb-2 py-1'>
+              <a href='/login'>all</a>
+            </li>
 
-        <div className="search-bar w-full relative sm:pl-5 sm:flex sm:justify-center">
-          <input className='w-full relative sm:w-[400px] lg:w-[600px]  h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
-          <button type="button" className='sm:relative sm:right-12 absolute right-2'> <FontAwesomeIcon className='faSearch' icon={faSearch} /></button>
-        </div>
-        <div className='hidden cursor-pointer text-black w-20 sm:w-48 sm:flex justify-around items-center'>
-          <button>Register</button>
-          <button className='button-59 w-full mx-3'>Login</button>
-        </div>
+          </ul>
+          <div className=' cursor-pointer text-black w-full sm:w-48 sm:flex justify-around items-center'>
+            <button>Register</button>
+            <button className='button-59 w-full md:mx-3'>Login</button>
+          </div>
+        </section>
       </div>
 
 
