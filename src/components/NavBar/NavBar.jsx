@@ -22,7 +22,7 @@ function NavBar() {
 
 
   return (
-    <div className='w-full bg-white z-50 flex justify-evenly sticky top-0 items-center h-14 shadow-sm border'>
+    <div className='w-full h-14 bg-white z-50 flex justify-evenly sticky top-0 items-center shadow-sm border'>
       <div className={`absolute right-0 top-14 z-50 ${isCartOpen ? 'animate-in' : 'hidden'}`}>
         <Cart />
       </div>
