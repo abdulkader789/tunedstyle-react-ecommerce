@@ -2,17 +2,25 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Shop.css';
-import { useCart } from '../Cart/CartContext';
 
 function Shop() {
     const [products, setProducts] = useState([]);
-    const { addToCart } = useCart();
+    const [cart, setCart] = useState([]);
 
+    const handleAddToCart = (product) => {
+        // Create a new cart array with the selected product added
+        const updatedCart = [...cart, product];
+        setCart(updatedCart);
+        console.log('total cart is : ', cart.length)
+
+    };
     useEffect(() => {
         fetch('https://fakestoreapi.com/products')
             .then((res) => res.json())
             .then((json) => setProducts(json));
     }, []);
+    console.log(cart.length)
+
 
     return (
         <div className="w-full bg-gray-100 py-5">
@@ -22,9 +30,11 @@ function Shop() {
                     <Product
                         key={product.id}
                         product={product}
-                        handleAddToCart={() => addToCart(product)}
+                        handleAddToCart={() => handleAddToCart(product)}
                     ></Product>
-                ))}
+                ))
+
+                }
             </div>
         </div>
     );

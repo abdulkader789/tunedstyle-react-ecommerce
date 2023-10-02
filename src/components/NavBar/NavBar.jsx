@@ -34,7 +34,8 @@ function NavBar() {
   return (
     <main className='relative w-full'>
       <div className="w-full flex items-center">
-        <div ref={barsRef} onClick={toggleSidebar} className="cursor-pointer md:hidden w-20">
+        <div ref={barsRef} onClick={toggleSidebar}
+          className="cursor-pointer md:hidden w-20">
           <FontAwesomeIcon className='text-black' icon={faBars} />
         </div>
         <h1 className='w-full text-xl text-black'>TunedStyle</h1>
