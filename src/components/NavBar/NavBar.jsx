@@ -33,7 +33,7 @@ function NavBar() {
   }, []);
 
   return (
-    <main className='relative w-full'>
+    <main className='relative w-full md:bg-[#f7f7f7] md:border md:shadow-xs md:sticky md:top-0 md:z-10'>
       <div className="w-full flex items-center md:justify-center h-14">
         <div ref={barsRef} onClick={toggleSidebar}
           className="cursor-pointer md:hidden w-20">
@@ -59,7 +59,7 @@ function NavBar() {
 
       <section ref={sidebarRef} className={`md:relative md:-left-0 md:top-auto md:h-auto
         md:flex-row md:w-full
-        transition-left duration-300 top-0 ease-in-out h-screen w-[300px] absolute -left-[300px] z-10  bg-gray-50 
+        transition-left duration-300 top-0 ease-in-out h-screen w-[300px] absolute -left-[300px] z-10
         ${isSidebarOpen ? '-left-[0px]' : ''}`}>
 
         <div className=" w-full relative  my-5 md:hidden">
