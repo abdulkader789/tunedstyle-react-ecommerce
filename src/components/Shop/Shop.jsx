@@ -8,10 +8,8 @@ function Shop() {
     const [cart, setCart] = useState([]);
 
     const handleAddToCart = (product) => {
-        // Create a new cart array with the selected product added
         const updatedCart = [...cart, product];
         setCart(updatedCart);
-        console.log('total cart is : ', cart.length)
 
     };
     useEffect(() => {
@@ -23,7 +21,7 @@ function Shop() {
 
 
     return (
-        <div className="w-full bg-gray-100 py-5">
+        <div className="w-full bg-gray-50 py-5">
             <h1 className='uppercase font-semibold text-xl sm:text-2xl text-slate-700 mb-5 md:text-3xl'>all the exclusive collections</h1>
             <div className="grid px-2 min-600 sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center w-full">
                 {products.map((product) => (

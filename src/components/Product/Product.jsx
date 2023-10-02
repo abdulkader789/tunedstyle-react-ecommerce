@@ -7,8 +7,6 @@ const Product = (props) => {
     const { title, image, price } = props.product
     const handleAddToCart = props.handleAddToCart
     const newTitle = title.split(' ')[0] + ' ' + title.split(' ')[1] + ' ' + title.split(' ')[2]
-    console.log(props.product)
-
 
 
     return (
