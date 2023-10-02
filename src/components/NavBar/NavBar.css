@@ -3,20 +3,38 @@
 .navbar {
   background-color: #f9f9f9;
   color: white;
-
   width: 100%;
 }
+.search-input{
+  border:1px solid rgb(197, 195, 195);
+}
+.search-input:focus{
+  border:1px solid rgb(216, 217, 219);
+
+}
+
+.animate-in{
+  display: block;
+  animation: fade-in 1s;
+}
+
+
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 
 .logo img {
   max-width: 100px; /* Adjust the logo size as needed */
   height: auto;
 }
 
-.search-bar {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
 .search-bar input {
   box-sizing: border-box;
   border: 1px solid rgb(202, 202, 202);
@@ -39,8 +57,51 @@
   cursor: pointer;
 }
 
-.faSearch {
-  color: black;
+
+.container {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-bg {
+  background-color: #fef7e5;
+
+  /* Adjust this value based on your design */
+  z-index: 10; /* Ensure the navbar stays above other content */
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(234, 104, 29);
+}
+
+ul li {
+  list-style-type: none;
+}
+ul li a {
+  text-decoration: none;
+}
+/* Add this to your CSS file */
+
+.slide-out{
+  left:-300px;
+}
+
+@media (max-width: 1024px) {
+  .slide-in {
+    left: 0;
+    transition: left 0.5s;
+  }
+
+  /* Initial position off the screen to the right */
+  .slide-out {
+    left: -300px;
+    transition: left 0.5s;
+  }
 }
 
 

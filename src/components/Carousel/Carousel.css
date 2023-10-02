@@ -1,0 +1,8 @@
+.box-border {
+  border: 2px solid red;
+  position: relative;
+  top: 100px;
+}
+button:hover {
+  background-color: transparent !important;
+}

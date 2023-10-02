@@ -6,11 +6,18 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 const Product = (props) => {
     const { title, image, price } = props.product
     const handleAddToCart = props.handleAddToCart
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7c06295e08a243061364ec2469b331d378cf398f
     const newTitle = title.split(' ')[0] + ' ' + title.split(' ')[1] + ' ' + title.split(' ')[2]
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7c06295e08a243061364ec2469b331d378cf398f
 
     return (
         <div className='card-shadow phone-width box-border w-52 flex flex-col px-2 h-64 mb-3 bg-white place-self-center relative'>

@@ -1,36 +1,33 @@
+// Shop.js
 import React, { useEffect, useState } from 'react';
-import Product from '../Product/Product'
-import './Shop.css'
+import Product from '../Product/Product';
+import './Shop.css';
+import { useCart } from '../Cart/CartContext';
 
-const Shop = () => {
-    
-    const [products, setProducts]=useState([])
-    const [cart, setCart]=useState([])
-    useEffect(()=>{
+function Shop() {
+    const [products, setProducts] = useState([]);
+    const { addToCart } = useCart();
+
+    useEffect(() => {
         fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json=>setProducts(json))
-    },[])
-    const handleAddToCart=(product)=>{
-        const newCart=[...cart,product]
-        setCart(newCart)
-    }
-    
+            .then((res) => res.json())
+            .then((json) => setProducts(json));
+    }, []);
+
     return (
-        <div className='flex justify-center my-5 w-full'>
-            <div className='w[80%]   grid grid-cols-1 gap-5  md:grid-cols-2 lg:grid-cols-3'>
-                {
-                    products.map(product=><Product key={product.id} product={product} handleAddToCart={handleAddToCart}></Product>)
-                }
+        <div className="w-full bg-gray-100 py-5">
+            <h1 className='uppercase font-semibold text-xl sm:text-2xl text-slate-700 mb-5 md:text-3xl'>all the exclusive collections</h1>
+            <div className="grid px-2 min-600 sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center w-full">
+                {products.map((product) => (
+                    <Product
+                        key={product.id}
+                        product={product}
+                        handleAddToCart={() => addToCart(product)}
+                    ></Product>
+                ))}
             </div>
-            <div className='w-[20%] p-5 box-shadow '>
-                <p className='text-left'>Product total {cart.length}</p>
-                <p className='text-left'>Product total cost</p>
-            </div>
-     
-            
         </div>
     );
-};
+}
 
 export default Shop;
