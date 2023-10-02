@@ -61,10 +61,8 @@ ul li a{
 
 .button-59 {
   align-items: center;
-  background-color: #fff;
   border: 2px solid #000;
   box-sizing: border-box;
-  color: #000;
   cursor: pointer;
   display: inline-flex;
   fill: #000;
@@ -84,16 +82,8 @@ ul li a{
   color: #171e29;
 }
 
-.button-59:hover {
-  background-color: black;
-  color:white;
-}
 
-.button-59:active {
-  border-color: #06f;
-  color: #06f;
-  fill: #06f;
-}
+
 
 .sidebar {
   position: absolute;

@@ -6,7 +6,8 @@ import { faShoppingCart, faBars, faSearch, faHeart } from '@fortawesome/free-sol
 function NavBar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const sidebarRef = useRef(null);
-  const barsRef = useRef(null); // Define the barsRef
+  const barsRef = useRef(null);
+  const searchRef = useRef(null); // Define the searchRef
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -16,8 +17,9 @@ function NavBar() {
     const handleClickOutside = (event) => {
       const sidebarClicked = sidebarRef.current && sidebarRef.current.contains(event.target);
       const barsClicked = barsRef.current && barsRef.current.contains(event.target);
+      const searchClicked = searchRef.current && searchRef.current.contains(event.target);
 
-      if (!sidebarClicked && !barsClicked) {
+      if (!sidebarClicked && !barsClicked && !searchClicked) {
         setIsSidebarOpen(false);
       }
     };
@@ -29,70 +31,60 @@ function NavBar() {
     };
   }, []);
 
-
-
-
   return (
     <main className='relative w-full'>
-      <div className="">
-        <div className="w-full flex">
-          <div ref={barsRef}
-            className="cursor-pointer w-20" onClick={toggleSidebar}>
-            <FontAwesomeIcon className='text-black' icon={faBars} />
-          </div>
-          <h1 className='w-full text-xl  text-black'>TunedStyle</h1>
-          < FontAwesomeIcon className='text-black m-auto w-20' icon={faSearch} />
-
+      <div className="w-full flex items-center justify-center">
+        <div ref={barsRef} onClick={toggleSidebar} className="cursor-pointer md:hidden w-20">
+          <FontAwesomeIcon className='text-black' icon={faBars} />
+        </div>
+        <h1 className='w-full md:w-60 text-xl text-black'>TunedStyle</h1>
+        <div ref={searchRef} onClick={toggleSidebar}
+          className='justify-center md:hidden w-20 flex items-center cursor-pointer'>
+          <FontAwesomeIcon className='text-black ' icon={faSearch} />
+        </div>
+        <div className=" w-full lg:w-[600px] relative  my-5 hidden md:block">
+          <input className='w-full relative h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
+          <button type="button" className='absolute right-1 top-2'>
+            <FontAwesomeIcon className='faSearch' icon={faSearch} />
+          </button>
+        </div>
+        <div className=' hidden cursor-pointer text-black w-[300px] md:flex flex-row'>
+          <button className='w-1/2'>Sign-up</button>
+          <button className='button-59 bg-slate-950 text-white w-1/2  md:mx-3 my-3'>Login</button>
         </div>
 
-        <section ref={sidebarRef} className={`sidebar z-10 bg-gray-100 ${isSidebarOpen ? 'open' : ''}`}>
-
-          <div className="search-bar w-full relative sm:pl-5 sm:flex sm:justify-center mb-5">
-            <input className='w-full relative sm:w-[400px] lg:w-[600px]  h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
-            <button type="button" className='sm:relative sm:right-12 absolute right-2'> <FontAwesomeIcon className='faSearch' icon={faSearch} /></button>
-          </div>
-          <ul className='flex flex-col justify-around uppercase nav-scale'>
-            <li className='bg-black mb-2 py-1'>
-              <a href='/shop'>Men</a>
-            </li>
-            <li className='bg-black mb-2 py-1'>
-              <a href='/order'>women</a>
-            </li>
-            <li className='bg-black mb-2 py-1'>
-              <a href='/inventory'>kids</a>
-            </li>
-            <li className='bg-black mb-2 py-1'>
-              <a href='/login'>all</a>
-            </li>
-
-          </ul>
-          <div className=' cursor-pointer text-black w-full sm:w-48 sm:flex justify-around items-center'>
-            <button>Register</button>
-            <button className='button-59 w-full md:mx-3'>Login</button>
-          </div>
-        </section>
       </div>
 
+      <section ref={sidebarRef} className={`md:relative md:-left-0 md:top-auto md:h-auto
+        md:flex-row md:w-full
+        transition-left duration-300 top-0 ease-in-out h-screen w-[300px] absolute -left-[300px] z-10  bg-gray-50 
+        ${isSidebarOpen ? '-left-0' : ''}`}>
 
-      <nav className="w-full py-5">
-
-        <ul className='flex justify-around uppercase w-[50%] mx-auto'>
-          <li>
+        <div className=" w-full relative  my-5 md:hidden">
+          <input className='w-full relative h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
+          <button type="button" className='absolute right-1 top-2'>
+            <FontAwesomeIcon className='faSearch' icon={faSearch} />
+          </button>
+        </div>
+        <ul className='flex flex-col justify-around uppercase text-black  md:flex-row md:w-[600px] md:mx-auto'>
+          <li className=' mb-2 py-1'>
             <a href='/shop'>Men</a>
           </li>
-          <li>
+          <li className='mb-2 py-1'>
             <a href='/order'>women</a>
           </li>
-          <li>
+          <li className='mb-2 py-1'>
             <a href='/inventory'>kids</a>
           </li>
-          <li>
+          <li className='mb-2 py-1'>
             <a href='/login'>all</a>
           </li>
-
         </ul>
-
-      </nav>
+        <div className='flex-col cursor-pointer text-black w-full flex justify-around items-center md:hidden'>
+          <button className=''>Sign-up</button>
+          <button className='button-59 bg-slate-950 text-white w-full md:mx-3 my-3'>Login</button>
+        </div>
+      </section>
     </main>
   );
 }
