@@ -28,10 +28,10 @@ function Shop() {
 
 
     return (
-        <div className="w-full bg-gray-50 py-5">
+        <div className="w-full bg-gray-50 p-5">
             <h1 className='uppercase font-semibold text-xl sm:text-2xl text-slate-700 mb-5 md:text-3xl'>all the exclusive collections</h1>
             <section className='flex flex-col-reverse md:flex-row'>
-                <div className="grid px-2  sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center w-full">
+                <div className="grid px-2 w-[80%]  sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center">
                     {products.map((product) => (
                         <Product
                             key={product.id}
