@@ -52,7 +52,7 @@ function NavBar() {
         </div>
         <div className='flex-row cursor-pointer hidden text-black w-[300px] md:flex justify-center items-center px-5'>
           <button className='w-1/2'>Sign-up</button>
-          <button className='button-59 bg-slate-950 w-1/2 text-white'>Login</button>
+          <button className='border-2 border-solid border-black text-black hover:bg-slate-950 py-1 w-1/2 hover:text-white'>Login</button>
         </div>
 
       </div>
@@ -84,7 +84,7 @@ function NavBar() {
         </ul>
         <div className='flex-col md:hidden cursor-pointer text-black w-full flex justify-around items-center'>
           <button className=''>Sign-up</button>
-          <button className='button-59 bg-slate-950 text-white w-full md:mx-3 my-3'>Login</button>
+          <button className='button-59 bg-slate-950  text-white w-full md:mx-3 my-3'>Login</button>
         </div>
       </section>
     </main >

@@ -1,65 +1,76 @@
-// Shop.js
 import React, { useEffect, useState } from 'react';
+import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
 
-function Shop() {
+const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-
-    const handleAddToCart = (product) => {
-        const updatedCart = [...cart, product];
-        setCart(updatedCart);
-
-    };
-    const [total, setTotal] = useState(0)
-
-    const calculateTotal = (price) => {
-        const newTotal = total + price;
-        setTotal(newTotal)
-    };
+    const [cart, setCart] = useState([])
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then((res) => res.json())
-            .then((json) => setProducts(json));
+        fetch('/public/products.json')
+            .then(res => res.json())
+            .then(data => setProducts(data))
     }, []);
-    console.log(cart.length)
 
+    useEffect(() => {
+        const storedCart = getShoppingCart();
+        const savedCart = [];
+        // step 1: get id of the addedProduct
+        for (const id in storedCart) {
+            // step 2: get product from products state by using id
+            const addedProduct = products.find(product => product.id === id)
+            if (addedProduct) {
+                // step 3: add quantity
+                const quantity = storedCart[id];
+                addedProduct.quantity = quantity;
+                // step 4: add the added product to the saved cart
+                savedCart.push(addedProduct);
+            }
+            // console.log('added Product', addedProduct)
+        }
+        // step 5: set the cart
+        setCart(savedCart);
+    }, [products])
+
+    const handleAddToCart = (product) => {
+        // cart.push(product); '
+        let newCart = [];
+        // const newCart = [...cart, product];
+        // if product doesn't exist in the cart, then set quantity = 1
+        // if exist update quantity by 1
+        const exists = cart.find(pd => pd.id === product.id);
+        if (!exists) {
+            product.quantity = 1;
+            newCart = [...cart, product]
+        }
+        else {
+            exists.quantity = exists.quantity + 1;
+            const remaining = cart.filter(pd => pd.id !== product.id);
+            newCart = [...remaining, exists];
+        }
+
+        setCart(newCart);
+        addToDb(product.id)
+    }
 
     return (
-        <div className="w-full bg-gray-50 p-5">
-            <h1 className='uppercase font-semibold text-xl sm:text-2xl text-slate-700 mb-5 md:text-3xl'>all the exclusive collections</h1>
-            <section className='flex flex-col-reverse md:flex-row'>
-                <div className="grid px-2 w-[80%]  sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center">
-                    {products.map((product) => (
-                        <Product
-                            key={product.id}
-                            product={product}
-                            handleAddToCart={() => handleAddToCart(product)}
-                            calculateTotal={() => calculateTotal(product.price)}
-                        ></Product>
-                    ))
-
-                    }
-                </div>
-                <div className='md:w-60 w-full bg-orange-100 p-5 mx-auto'>
-                    <h1 className='text-center mb-5'>Cart Items</h1>
-                    {
-                        cart.map((product) => (
-                            <div className='flex mb-2'>
-                                <p className='text-sm mr-3'>{product.title.split(' ')[0] + ' ' + product.title.split(' ')[1]
-                                }</p>
-                                <p className='text-sm'>{product.price}</p>
-                            </div>
-                        ))
-                    }
-                    <p className='text-left text-sm'> Total Product <span className='ml-3'>{cart.length}</span></p>
-                    <p className='text-left text-sm'> Total Price <span className='ml-3'>{total}</span></p>
-                </div>
-            </section>
+        <div className='shop-container'>
+            <div className="products-container">
+                {
+                    products.map(product => <Product
+                        key={product.id}
+                        product={product}
+                        handleAddToCart={handleAddToCart}
+                    ></Product>)
+                }
+            </div>
+            <div className="cart-container">
+                <Cart cart={cart}></Cart>
+            </div>
         </div>
     );
-}
+};
 
 export default Shop;
