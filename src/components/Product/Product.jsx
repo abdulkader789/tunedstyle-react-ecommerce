@@ -11,13 +11,13 @@ const Product = (props) => {
 
     return (
 
-        <div className='card-shadow phone-width box-border w-52 flex flex-col px-2 h-64 mb-3 bg-white place-self-center relative'>
-            <img alt='' className='h-[50%] w-full' src={img} ></img>
+        <div className='card-shadow phone-width box-border w-52 flex flex-col px-2 h-64 mb-3 bg-[#f0f0f0] place-self-center relative'>
+            <img alt='' className='h-[50%] w-full px-5' src={img} ></img>
             <div className='product-info'>
                 <h6 className='product-name'>{name}</h6>
                 <p>Price: ${price}</p>
-                <p>Manufacturer: {seller}</p>
-                <p>Rating: {ratings} Stars</p>
+                {/* <p>Manufacturer: {seller}</p>
+                <p>Rating: {ratings} Stars</p> */}
             </div>
             <button onClick={() => handleAddToCart(props.product)} className='btn-cart'>
                 Add to Cart

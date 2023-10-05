@@ -56,20 +56,24 @@ const Shop = () => {
     }
 
     return (
-        <div className=''>
-            <div className="products-container">
-                {
-                    products.map(product => <Product
-                        key={product.id}
-                        product={product}
-                        handleAddToCart={handleAddToCart}
-                    ></Product>)
-                }
-            </div>
-            <div className="cart-container">
-                <Cart cart={cart}></Cart>
+        <div className="w-full bg-slate-100 py-5 relative">
+            <h1 className='capitalize font-semibold text-xl sm:text-2xl text-red-400 mb-5 md:text-3xl'>all exclusive collections</h1>
+            <div className='flex relative'>
+                <div className="grid px-2  sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center w-[80%]">
+                    {products.map((product) => (
+                        <Product
+                            key={product.id}
+                            product={product}
+                            handleAddToCart={() => handleAddToCart(product)}
+                        ></Product>
+                    ))}
+                </div>
+                <div className="sticky top-24 z-10 h-full">
+                    <Cart cart={cart}></Cart>
+                </div>
             </div>
         </div>
+
     );
 };
 

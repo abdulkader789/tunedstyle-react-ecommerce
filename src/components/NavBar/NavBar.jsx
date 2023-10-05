@@ -58,9 +58,9 @@ function NavBar() {
       </div>
 
       <section ref={sidebarRef} className={`md:relative md:-left-0 md:top-auto md:h-auto
-        md:flex-row md:w-full
+        md:flex-row md:w-full bg-white
         transition-left duration-300 top-0 ease-in-out h-screen w-[300px] absolute -left-[300px] z-10
-        ${isSidebarOpen ? '-left-[0px]' : ''}`}>
+        ${isSidebarOpen ? '-left-[10px]' : ''}`}>
 
         <div className=" w-full relative  my-5 md:hidden">
           <input className='w-full relative h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
@@ -84,7 +84,7 @@ function NavBar() {
         </ul>
         <div className='flex-col md:hidden cursor-pointer text-black w-full flex justify-around items-center'>
           <button className=''>Sign-up</button>
-          <button className='button-59 bg-slate-950  text-white w-full md:mx-3 my-3'>Login</button>
+          <button className='button-59 bg-slate-950 py-1 text-white w-full md:mx-3 my-3'>Login</button>
         </div>
       </section>
     </main >
