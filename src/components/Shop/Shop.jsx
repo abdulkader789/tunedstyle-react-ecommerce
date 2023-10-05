@@ -9,7 +9,7 @@ const Shop = () => {
     const [cart, setCart] = useState([])
 
     useEffect(() => {
-        fetch('/public/products.json')
+        fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
@@ -56,7 +56,7 @@ const Shop = () => {
     }
 
     return (
-        <div className='shop-container'>
+        <div className=''>
             <div className="products-container">
                 {
                     products.map(product => <Product

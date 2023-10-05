@@ -10,8 +10,9 @@ const Product = (props) => {
 
 
     return (
-        <div className='product h-[400px]'>
-            <img className='h-1/2' src={img} alt="" />
+
+        <div className='card-shadow phone-width box-border w-52 flex flex-col px-2 h-64 mb-3 bg-white place-self-center relative'>
+            <img alt='' className='h-[50%] w-full' src={img} ></img>
             <div className='product-info'>
                 <h6 className='product-name'>{name}</h6>
                 <p>Price: ${price}</p>
