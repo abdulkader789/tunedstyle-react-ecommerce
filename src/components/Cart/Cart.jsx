@@ -1,19 +1,36 @@
 import React from 'react';
 
 const Cart = ({ cart }) => {
-    let total = 0;
+    // const cart = props.cart; // option 1
+    // const {cart} = props; // option 2
+
+    // console.log(cart);
+
+    let totalPrice = 0;
+    let totalShipping = 0;
     let quantity = 0;
     for (const product of cart) {
-        total += product.price;
+        // if(product.quantity === 0){
+        //     product.quantity = 1;
+        // }
+        // product.quantity = product.quantity || 1;
+
+        totalPrice = totalPrice + product.price * product.quantity;
+        totalShipping = totalShipping + product.shipping;
         quantity = quantity + product.quantity;
     }
+    const tax = totalPrice * 7 / 100;
+
+    const grandTotal = totalPrice + totalShipping + tax;
 
     return (
-        <div className='md:w-60 w-full bg-orange-100 p-5 mx-auto'>
-            <h1 className='text-center mb-5'>Cart Items</h1>
-            <p className='text-left text-sm'> Total Product <span className='ml-3'>$ {cart.length}</span></p>
-            <p className='text-left text-sm'> Total Price <span className='ml-3'>$ {total}</span></p>
-
+        <div className='md:w-60 w-full  p-5 mx-auto text-left'>
+            <h2>Cart Items</h2>
+            <p>Selected Items: {quantity}</p>
+            <p>Total Price: ${totalPrice}</p>
+            <p>Shipping: ${totalShipping}</p>
+            <p>Tax: ${tax.toFixed(2)}</p>
+            <h2>Grand Total: ${grandTotal.toFixed(2)} </h2>
         </div>
     );
 };

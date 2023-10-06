@@ -59,8 +59,8 @@ function NavBar() {
 
       <section ref={sidebarRef} className={`md:relative md:-left-0 md:top-auto md:h-auto
         md:flex-row md:w-full bg-white
-        transition-left duration-300 top-0 ease-in-out h-screen w-[300px] absolute -left-[300px] z-10
-        ${isSidebarOpen ? '-left-[10px]' : ''}`}>
+        transition-left duration-300 top-0 ease-in-out h-screen w-[300px] absolute  z-10
+        ${isSidebarOpen ? '-left-0' : '-left-80'}`}>
 
         <div className=" w-full relative  my-5 md:hidden">
           <input className='w-full relative h-0 text-sm text-black  py-4' type="text" placeholder="Search Products" />
@@ -68,18 +68,27 @@ function NavBar() {
             <FontAwesomeIcon className='faSearch' icon={faSearch} />
           </button>
         </div>
-        <ul className='flex flex-col md:flex-row justify-around uppercase text-black md:w-[600px] mx-auto'>
+        <ul className='flex flex-col md:flex-row md:px-32 justify-around uppercase text-black w-full mx-auto'>
           <li className=' mb-2 py-1'>
-            <a href='/shop'>Men</a>
+            <a href='/shop'>shoes</a>
           </li>
           <li className='mb-2 py-1'>
-            <a href='/order'>women</a>
+            <a href='/order'>TRACK PANTS</a>
           </li>
           <li className='mb-2 py-1'>
-            <a href='/inventory'>kids</a>
+            <a href='/inventory'>T-Shirts</a>
           </li>
           <li className='mb-2 py-1'>
-            <a href='/login'>all</a>
+            <a href='/login'>Back Packs</a>
+          </li>
+          <li className='mb-2 py-1'>
+            <a href='/login'>Gadgets</a>
+          </li>
+          <li className='mb-2 py-1'>
+            <a href='/login'>Hats</a>
+          </li>
+          <li className='mb-2 py-1'>
+            <a href='/login'>Water Bottles</a>
           </li>
         </ul>
         <div className='flex-col md:hidden cursor-pointer text-black w-full flex justify-around items-center'>

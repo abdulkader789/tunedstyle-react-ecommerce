@@ -3,8 +3,15 @@ import { addToDb, getShoppingCart } from '../../utilities/fakedb';
 import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+
 
 const Shop = () => {
+    const [isIconClicked, setIsIconClicked] = useState(false)
+    const iconToggle = () => {
+        setIsIconClicked(!isIconClicked)
+    }
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([])
 
@@ -59,7 +66,7 @@ const Shop = () => {
         <div className="w-full bg-slate-100 py-5 relative">
             <h1 className='capitalize font-semibold text-xl sm:text-2xl text-red-400 mb-5 md:text-3xl'>all exclusive collections</h1>
             <div className='flex relative'>
-                <div className="grid px-2  sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center w-[80%]">
+                <div className="grid px-2  sm:px-0 gap-5 grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 place-content-center w-full">
                     {products.map((product) => (
                         <Product
                             key={product.id}
@@ -68,8 +75,14 @@ const Shop = () => {
                         ></Product>
                     ))}
                 </div>
-                <div className="sticky top-24 z-10 h-full">
-                    <Cart cart={cart}></Cart>
+                <div className="sticky top-[20%] z-10 h-full ">
+                    <div onClick={iconToggle} className='cursor-pointer'>
+                        <button className='absolute -top-5'>{cart.length}</button>
+                        <FontAwesomeIcon className='text-orange-400 text-4xl animated-icon' icon={faShoppingCart} />
+                    </div>
+                    {isIconClicked ? <div className='bg-orange-300'><Cart cart={cart}></Cart></div> : ''
+
+                    }
                 </div>
             </div>
         </div>
